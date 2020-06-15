@@ -44,7 +44,7 @@ namespace Ebtkaraat.MVP
             }
             return -1;
         }
-        public override void AddMatch(string team, string pos ,int Sp,int reb,int assist)
+        public void AddMatch(string team, string pos ,int Sp,int reb,int assist)
         {
             
             Team.Add(team);

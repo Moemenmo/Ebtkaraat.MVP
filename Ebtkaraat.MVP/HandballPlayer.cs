@@ -34,15 +34,13 @@ namespace Ebtkaraat.MVP
 
             }
         }
-        public override void AddMatch(string team, string pos, int GM, int GR)
+        public void AddMatch(string team, string pos, int GM, int GR)
         {
             Team.Add(team);
             Position.Add(pos);
             GoalsMade.Add(GM);
             GoalsReceived.Add(GR);
         }
-
-       
     }
 }
 //goals made;goals received   hand 
