@@ -23,22 +23,22 @@ namespace Ebtkaraat.MVP
 
         public override int CalculatePoints()
         {
-            if (Position[Position.Count - 1] == "G")
+            if (Position[^1] == "G")
             {
-               int res = (ScoredPoints[ScoredPoints.Count - 1] * 2) + (Rebounds[Rebounds.Count - 1] * 3) + (Assists[Assists.Count - 1]);
+               int res = (ScoredPoints[^1] * 2) + (Rebounds[^1] * 3) + (Assists[^1]);
                 Points += res;
                 return res;
             }
-            else if (Position[Position.Count - 1] == "F")
+            else if (Position[^1] == "F")
             {
-                int res = (ScoredPoints[ScoredPoints.Count - 1] * 2) + (Rebounds[Rebounds.Count - 1] * 2) + (Assists[Assists.Count - 1]*2);
+                int res = (ScoredPoints[^1] * 2) + (Rebounds[^1] * 2) + (Assists[^1]*2);
                 Points += res;
                 return res;
 
             }
-            else if (Position[Position.Count - 1] == "C")
+            else if (Position[^1] == "C")
             {
-                int res = (ScoredPoints[ScoredPoints.Count - 1] * 2) + (Rebounds[Rebounds.Count - 1] * 1) + (Assists[Assists.Count - 1]*3);
+                int res = (ScoredPoints[^1] * 2) + (Rebounds[^1] * 1) + (Assists[^1]*3);
                 Points += res;
                 return res;
             }

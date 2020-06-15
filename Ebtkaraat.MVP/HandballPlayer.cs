@@ -20,15 +20,15 @@ namespace Ebtkaraat.MVP
         }
         public override int CalculatePoints()
         {
-            if (Position[Position.Count - 1] == "G")
+            if (Position[^1] == "G")
             {
-                int res = 50 + (GoalsMade[GoalsMade.Count - 1] * 5) - (GoalsReceived[GoalsReceived.Count - 1]*2);
+                int res = 50 + (GoalsMade[^1] * 5) - (GoalsReceived[^1]*2);
                 Points += res;
                 return res;
             }
             else // Position[Position.Count - 1] == "F"
             {
-                int res =20 + (GoalsMade[GoalsMade.Count - 1]) - (GoalsReceived[GoalsReceived.Count - 1]);
+                int res =20 + (GoalsMade[^1]) - (GoalsReceived[^1]);
                 Points += res;
                 return res;
 

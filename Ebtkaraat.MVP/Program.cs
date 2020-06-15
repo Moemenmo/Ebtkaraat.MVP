@@ -14,16 +14,17 @@ namespace Ebtkaraat.MVP
             System.IO.StreamReader file2 = new System.IO.StreamReader(@"C:\Users\Moamen\Desktop\Ebtkaraat.MVP\Match2.txt");
             System.IO.StreamReader file3 = new System.IO.StreamReader(@"C:\Users\Moamen\Desktop\Ebtkaraat.MVP\HandBall 1.txt");
             System.IO.StreamReader file4 = new System.IO.StreamReader(@"C:\Users\Moamen\Desktop\Ebtkaraat.MVP\HandBall 2.txt");
-            List<StreamReader> files = new List<StreamReader>();
-            files.Add(file1);
-            files.Add(file2);
-            files.Add(file3);
-            files.Add(file4);
+            List<StreamReader> files = new List<StreamReader>
+            {
+                file1,
+                file2,
+                file3,
+                file4
+            };
             string type = "";
             bool basketball = true;
             bool handball = true;
             List<BasketballPlayer> basketballPlayers = new List<BasketballPlayer>();
-                int c = 0;
             List<HandballPlayer> handballPlayers = new List<HandballPlayer>();
             foreach (var file in files)
             {
@@ -38,14 +39,10 @@ namespace Ebtkaraat.MVP
                 int maxPoints = 0, maxPointIndex = 0;
                 while ((line = file.ReadLine()) != null)
                 {
-                    if (count == 0)
+                    if (count == 0) 
                     {
-                    c++;
                         type = line;
-                        Console.WriteLine(type);
-                        Console.WriteLine(c);
-
-                    }
+                    }// get headline of file 
                     else
                     {
                         string[] tokens = line.Split(';');
@@ -90,7 +87,7 @@ namespace Ebtkaraat.MVP
                                     else // add  new player to players list
                                     { bPlayer.AddMatch(tokens[3], tokens[4], score, reb, assist); }
                                     fileBasketballPlayers.Add(bPlayer);
-                                    if (bPlayer.Team[bPlayer.Team.Count - 1] == team1Name)
+                                    if (bPlayer.Team[^1] == team1Name)
                                     {
                                         team1Points += score;
                                     }
@@ -154,7 +151,7 @@ namespace Ebtkaraat.MVP
                                     fileHandballPlayers.Add(bPlayer);
                                     #region calculate final score points
 
-                                    if (bPlayer.Team[bPlayer.Team.Count - 1] == team1Name)
+                                    if (bPlayer.Team[^1] == team1Name)
                                     {
                                         team1Points += goalM;
                                     }
@@ -173,7 +170,7 @@ namespace Ebtkaraat.MVP
                                 handball = false;
 
                         }
-                    }
+                    } // body of file 
                     count++;
                 }
                 #region calculate player's scores for each match
@@ -193,7 +190,7 @@ namespace Ebtkaraat.MVP
                             foreach (var player in fileHandballPlayers)
                             {
                                 int points = player.CalculatePoints();
-                                if (points > maxPoints && player.Team[player.Team.Count - 1] == winner)
+                                if (points > maxPoints && player.Team[^1] == winner)
                                 {
                                     maxPoints = points;
                                     maxPointIndex = fileHandballPlayers.FindIndex(a => a.NickName == player.NickName);
@@ -215,7 +212,7 @@ namespace Ebtkaraat.MVP
                     foreach (var player in fileBasketballPlayers)
                     {
                         int points = player.CalculatePoints();
-                        if (points > maxPoints && player.Team[player.Team.Count - 1] == winner)
+                        if (points > maxPoints && player.Team[^1] == winner)
                         {
                             maxPoints = points;
                             maxPointIndex = fileBasketballPlayers.FindIndex(a => a.NickName == player.NickName);
