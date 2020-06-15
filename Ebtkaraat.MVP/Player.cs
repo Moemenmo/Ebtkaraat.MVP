@@ -23,7 +23,6 @@ namespace Ebtkaraat.MVP
             Position.Add(position);
         }
         public abstract int CalculatePoints(); 
-        public abstract void AddMatch(string team, string pos, int GM, int GR);
     }
 }
 //player name;nickname;number;team name;position;goals made;goals received   hand 
