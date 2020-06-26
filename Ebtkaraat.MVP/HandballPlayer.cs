@@ -16,6 +16,9 @@ namespace Ebtkaraat.MVP
             GoalsReceived = new List<int>();
             GoalsMade.Add( goalsMade);
             GoalsReceived.Add( goalsReceived);
+            AYAAAAAAAAAAAAAAAA
+                 
+
 
         }
         public override int CalculatePoints()
