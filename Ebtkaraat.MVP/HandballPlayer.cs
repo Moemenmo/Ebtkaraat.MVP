@@ -16,11 +16,8 @@ namespace Ebtkaraat.MVP
             GoalsReceived = new List<int>();
             GoalsMade.Add( goalsMade);
             GoalsReceived.Add( goalsReceived);
-            
-                 
-
-
         }
+        asdasd
         public override int CalculatePoints()
         {
             if (Position[^1] == "G")
